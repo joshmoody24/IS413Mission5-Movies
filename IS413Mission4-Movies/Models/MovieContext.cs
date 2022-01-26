@@ -22,6 +22,7 @@ namespace IS413Mission4_Movies.Models
                 {
                     MovieId = 1,
                     Title = "Shrek",
+                    Year = 2001,
                     Director = "Andrew Adamson",
                     Rating = "PG",
                     Category = "Meme",
@@ -33,6 +34,7 @@ namespace IS413Mission4_Movies.Models
                 {
                     MovieId = 2,
                     Title = "Star Wars Holiday Special",
+                    Year = 1978,
                     Director = "Steve Binder",
                     Category = "Idk",
                     Rating = "PG",
@@ -44,6 +46,7 @@ namespace IS413Mission4_Movies.Models
                 {
                     MovieId = 3,
                     Title = "Big Chungus",
+                    Year = 2100,
                     Director = "Himself",
                     Category = "Action",
                     Rating = "R",

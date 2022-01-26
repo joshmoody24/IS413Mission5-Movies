@@ -17,6 +17,9 @@ namespace IS413Mission4_Movies.Models
         public string Title { get; set; }
 
         [Required]
+        public int Year { get; set; }
+
+        [Required]
         public string Director { get; set; }
 
         [Required]

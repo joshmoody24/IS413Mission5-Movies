@@ -23,7 +23,6 @@ namespace IS413Mission4_Movies.Controllers
 
         public IActionResult Index()
         {
-            Console.WriteLine(movieContext);
             return View(movieContext);
         }
 
@@ -47,7 +46,7 @@ namespace IS413Mission4_Movies.Controllers
                 movieContext.Add(movie);
                 movieContext.SaveChanges();
                 // this calls the index function (goes back to the movie collection list)
-                return Index();
+                return View("Index", movieContext);
             }
             else return View();
         }

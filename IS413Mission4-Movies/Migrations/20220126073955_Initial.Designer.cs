@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IS413Mission4_Movies.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20220126070704_Initial")]
+    [Migration("20220126073955_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,7 +38,8 @@ namespace IS413Mission4_Movies.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(25);
 
                     b.Property<string>("Rating")
                         .IsRequired()
@@ -47,6 +48,9 @@ namespace IS413Mission4_Movies.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("MovieId");
 
@@ -60,7 +64,8 @@ namespace IS413Mission4_Movies.Migrations
                             Director = "Andrew Adamson",
                             Edited = false,
                             Rating = "PG",
-                            Title = "Shrek"
+                            Title = "Shrek",
+                            Year = 2001
                         },
                         new
                         {
@@ -70,7 +75,8 @@ namespace IS413Mission4_Movies.Migrations
                             Edited = true,
                             Notes = "Really good movie",
                             Rating = "PG",
-                            Title = "Star Wars Holiday Special"
+                            Title = "Star Wars Holiday Special",
+                            Year = 1978
                         },
                         new
                         {
@@ -79,9 +85,10 @@ namespace IS413Mission4_Movies.Migrations
                             Director = "Himself",
                             Edited = false,
                             LentTo = "Fred",
-                            Notes = "Do not watch under any circumstances",
+                            Notes = "Do not watch",
                             Rating = "R",
-                            Title = "Big Chungus"
+                            Title = "Big Chungus",
+                            Year = 2100
                         });
                 });
 #pragma warning restore 612, 618
