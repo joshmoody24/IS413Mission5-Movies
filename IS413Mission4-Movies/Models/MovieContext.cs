@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IS413Mission4_Movies.Models
+namespace IS413Mission5_Movies.Models
 {
     public class MovieContext : DbContext
     {

@@ -1,4 +1,4 @@
-using IS413Mission4_Movies.Models;
+using IS413Mission5_Movies.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IS413Mission4_Movies
+namespace IS413Mission5_Movies
 {
     public class Startup
     {

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IS413Mission4_Movies.Models
+namespace IS413Mission5_Movies.Models
 {
     public class Movie
     {

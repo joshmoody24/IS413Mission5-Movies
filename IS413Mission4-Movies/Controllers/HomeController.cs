@@ -1,4 +1,4 @@
-﻿using IS413Mission4_Movies.Models;
+﻿using IS413Mission5_Movies.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,17 +7,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IS413Mission4_Movies.Controllers
+namespace IS413Mission5_Movies.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
         private MovieContext movieContext { get; set; }
 
         public HomeController(ILogger<HomeController> logger, MovieContext mc)
         {
-            _logger = logger;
             movieContext = mc;
         }
 
@@ -54,12 +51,6 @@ namespace IS413Mission4_Movies.Controllers
         public IActionResult MyPodcasts()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

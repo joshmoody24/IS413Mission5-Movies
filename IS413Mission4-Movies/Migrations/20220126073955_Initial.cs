@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace IS413Mission4_Movies.Migrations
+namespace IS413Mission5_Movies.Migrations
 {
     public partial class Initial : Migration
     {
