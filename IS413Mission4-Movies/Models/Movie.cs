@@ -23,9 +23,6 @@ namespace IS413Mission5_Movies.Models
         public string Director { get; set; }
 
         [Required]
-        public string Category { get; set; }
-
-        [Required]
         public string Rating { get; set; }
 
         public bool Edited { get; set; }
@@ -33,5 +30,10 @@ namespace IS413Mission5_Movies.Models
 
         [StringLength(25)]
         public string Notes { get; set; }
+
+        [Required]
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
     }
 }

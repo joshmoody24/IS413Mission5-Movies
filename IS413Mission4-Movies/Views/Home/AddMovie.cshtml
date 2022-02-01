@@ -20,7 +20,13 @@
     <br />
 
     <label asp-for="Category">Category:</label>
-    <input class="form-control" asp-for="Category" />
+    <select class="form-control" asp-for="CategoryId">
+        <option value="" disabled selected hidden>Select Category</option>
+        @foreach (Category c in ViewBag.Categories)
+            {
+                <option value=@c.CategoryId>@c.CategoryName</option>
+            }
+    </select>
     <br />
 
     <label asp-for="Rating">Rating:</label>

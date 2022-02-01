@@ -2,12 +2,12 @@
     ViewData["Title"] = "Movie Collection Home";
 }
 
-@model MovieContext;
+@model List<Movie>;
 
 <h1 class="display-4">The Joel Hilton Film Collection</h1>
 <img src="~/img/joelhilton.jpg" />
 <h2 class="mt-3">Movie List</h2>
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Title</th>
@@ -21,12 +21,12 @@
         </tr>
     </thead>
     @*//iterate over all movies in db*@
-    @foreach (Movie m in Model.movies)
+    @foreach (Movie m in Model)
     {
         <tr>
             <td>@m.Title</td>
             <td>@m.Year</td>
-            <td>@m.Category</td>
+            <td>@m.Category.CategoryName</td>
             <td>@m.Director</td>
             <td>@m.Rating</td>
             <td>@m.Edited</td>

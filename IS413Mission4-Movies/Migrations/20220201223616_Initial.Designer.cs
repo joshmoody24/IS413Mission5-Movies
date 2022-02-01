@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IS413Mission5_Movies.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20220126073955_Initial")]
+    [Migration("20220201223616_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,15 +17,75 @@ namespace IS413Mission5_Movies.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22");
 
-            modelBuilder.Entity("IS413Mission4_Movies.Models.Movie", b =>
+            modelBuilder.Entity("IS413Mission5_Movies.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Action/Adventure"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Comedy"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Drama"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Family"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryName = "Horror/Suspense"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryName = "Miscellaneous"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryName = "Television"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryName = "VHS"
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            CategoryName = "Meme"
+                        });
+                });
+
+            modelBuilder.Entity("IS413Mission5_Movies.Models.Movie", b =>
                 {
                     b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -54,13 +114,15 @@ namespace IS413Mission5_Movies.Migrations
 
                     b.HasKey("MovieId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("movies");
 
                     b.HasData(
                         new
                         {
                             MovieId = 1,
-                            Category = "Meme",
+                            CategoryId = 9,
                             Director = "Andrew Adamson",
                             Edited = false,
                             Rating = "PG",
@@ -70,7 +132,7 @@ namespace IS413Mission5_Movies.Migrations
                         new
                         {
                             MovieId = 2,
-                            Category = "Idk",
+                            CategoryId = 4,
                             Director = "Steve Binder",
                             Edited = true,
                             Notes = "Really good movie",
@@ -81,7 +143,7 @@ namespace IS413Mission5_Movies.Migrations
                         new
                         {
                             MovieId = 3,
-                            Category = "Action",
+                            CategoryId = 1,
                             Director = "Himself",
                             Edited = false,
                             LentTo = "Fred",
@@ -90,6 +152,15 @@ namespace IS413Mission5_Movies.Migrations
                             Title = "Big Chungus",
                             Year = 2100
                         });
+                });
+
+            modelBuilder.Entity("IS413Mission5_Movies.Models.Movie", b =>
+                {
+                    b.HasOne("IS413Mission5_Movies.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

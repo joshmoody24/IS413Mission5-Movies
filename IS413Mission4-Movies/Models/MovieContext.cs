@@ -14,9 +14,59 @@ namespace IS413Mission5_Movies.Models
         }
 
         public DbSet<Movie> movies { get; set; }
+        public DbSet<Category> categories { get; set; }
 
+        // seeding database
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            mb.Entity<Category>().HasData(
+                new Category
+                {
+                    CategoryId = 1,
+                    CategoryName = "Action/Adventure"
+                },
+                new Category
+                {
+                    CategoryId = 2,
+                    CategoryName = "Comedy"
+                },
+                new Category
+                {
+                    CategoryId = 3,
+                    CategoryName = "Drama"
+                },
+                new Category
+                {
+                    CategoryId = 4,
+                    CategoryName = "Family"
+                },
+                new Category
+                {
+                    CategoryId = 5,
+                    CategoryName = "Horror/Suspense"
+                },
+                new Category
+                {
+                    CategoryId = 6,
+                    CategoryName = "Miscellaneous"
+                },
+                new Category
+                {
+                    CategoryId = 7,
+                    CategoryName = "Television"
+                },
+                new Category
+                {
+                    CategoryId = 8,
+                    CategoryName = "VHS"
+                },
+                new Category
+                {
+                    CategoryId = 9,
+                    CategoryName = "Meme"
+                }
+            );
+
             mb.Entity<Movie>().HasData(
                 new Movie
                 {
@@ -25,7 +75,7 @@ namespace IS413Mission5_Movies.Models
                     Year = 2001,
                     Director = "Andrew Adamson",
                     Rating = "PG",
-                    Category = "Meme",
+                    CategoryId = 9,
                     Edited = false,
                     Notes = null,
                     LentTo = null,
@@ -36,7 +86,7 @@ namespace IS413Mission5_Movies.Models
                     Title = "Star Wars Holiday Special",
                     Year = 1978,
                     Director = "Steve Binder",
-                    Category = "Idk",
+                    CategoryId = 4,
                     Rating = "PG",
                     Edited = true,
                     Notes = "Really good movie",
@@ -48,7 +98,7 @@ namespace IS413Mission5_Movies.Models
                     Title = "Big Chungus",
                     Year = 2100,
                     Director = "Himself",
-                    Category = "Action",
+                    CategoryId = 1,
                     Rating = "R",
                     Edited = false,
                     Notes = "Do not watch",
