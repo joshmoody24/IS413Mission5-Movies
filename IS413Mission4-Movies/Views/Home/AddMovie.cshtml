@@ -1,12 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "Add Movie";
+    ViewData["Title"] = ViewBag.Editing ? "Edit Movie" : "Add Movie";
 }
 
 @model Movie
 
-<h1>Add New Movie</h1>
+<h1>@ViewData["Title"]</h1>
 
 <form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
     <label asp-for="Title">Title:</label>
     <input class="form-control" asp-for="Title" />
     <br />
@@ -23,9 +25,9 @@
     <select class="form-control" asp-for="CategoryId">
         <option value="" disabled selected hidden>Select Category</option>
         @foreach (Category c in ViewBag.Categories)
-            {
-                <option value=@c.CategoryId>@c.CategoryName</option>
-            }
+        {
+            <option value=@c.CategoryId>@c.CategoryName</option>
+        }
     </select>
     <br />
 
@@ -54,7 +56,6 @@
     <textarea class="form-control" asp-for="Notes"></textarea>
     <br />
 
-    <button class="btn btn-primary" type="submit">Add Movie</button>
+    <button class="btn btn-primary" type="submit">Submit</button>
 
-    <div asp-validation-summary="All"></div>
 </form>
